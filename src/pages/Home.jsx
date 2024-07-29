@@ -6,7 +6,7 @@ const Home = () => {
       <header className='flex justify-between items-center'>
         <div className="flex justify-between items-center">
           <Link to="/">
-            <img className="ml-4 mt-4 mx-auto md:mt-0 w-20 h-auto hover:shadow-lg hover:shadow-gray-300" src="/timekeeper.png" alt="image description"></img>
+            <img className="ml-4 w-20 h-auto hover:shadow-lg hover:shadow-gray-300" src="/timekeeper.png" alt="image description"></img>
           </Link>
         </div>
           
@@ -26,8 +26,8 @@ const Home = () => {
             <button className="hover:bg-black hover:text-white mt-10 mb-6 leading-10 border-gray-500 border px-5 rounded-full">Get started</button>
           </a>
         </div>
-        <div>
-          <img className="h-auto max-w-xs ml-10" src="/skincare2.png" alt="image description"></img>
+        <div className="flex justify-center mt-5 md:mt-0">
+          <img className="h-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-4 sm:mx-8 md:mx-10" src="/skincare2.png" alt="image description"></img>
         </div>
       </div>
     </div>
