@@ -6,7 +6,7 @@ const Home = () => {
       <header className='flex justify-between items-center'>
         <div className="flex justify-between items-center">
           <Link to="/">
-            <img className="ml-4 w-20 h-auto hover:shadow-lg hover:shadow-gray-300" src="/timekeeper.png" alt="image description"></img>
+            <img className="ml-4 mt-4 mx-auto md:mt-0 w-20 h-auto hover:shadow-lg hover:shadow-gray-300" src="/timekeeper.png" alt="image description"></img>
           </Link>
         </div>
           
