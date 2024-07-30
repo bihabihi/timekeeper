@@ -6,7 +6,7 @@ export const registerUser = async ({ username, email, password}) => {
     };
     console.log("Payload:", payload);
     try {
-        const response = await fetch (`${import.meta.env.VITE_API_URL}/register`, {
+        const response = await fetch (`${import.meta.env.VITE_API_URL}register`, {
             method:"POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -29,11 +29,8 @@ export const registerUser = async ({ username, email, password}) => {
 
 export const loginUser = async ({ email, password}) => {
     try {
-        const apiUrl = import.meta.env.VITE_API_URL;
-        console.log('API URL>>>', apiUrl)
-        console.log(`${apiUrl}/login`)
 
-        const response = await fetch (`${import.meta.env.VITE_API_URL}/login`, {
+        const response = await fetch (`${import.meta.env.VITE_API_URL}login`, {
             method:"POST",
             headers: {
                 'Content-Type': 'application/json'
