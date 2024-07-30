@@ -104,7 +104,7 @@ export const ViewList = () => {
             ) : (
                 data.map((item, index) => (
                     <div key={index} className={`mobile-row text-center ${rowColour(item.status)} py-2 border-b`}>
-                        <div><strong>No:</strong> {index + 1}</div>
+                        <div>No:{index + 1}</div>
                         <div><strong>Product:</strong> {item.product_name}</div>
                         <div><strong>Opened Date:</strong> {formatDate(item.open_date)}</div>
                         <div><strong>Expiry Date:</strong> {formatDate(item.expiry_date)}</div>

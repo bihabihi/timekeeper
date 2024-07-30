@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom"
 
 const Home = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = window.localStorage.getItem('token');
+
+    if (token) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn (false)
+    }
+  }, [])
+
   return (
     <div className="p-4 w-full h-screen">
       <header className='flex justify-between items-center'>
@@ -12,10 +24,19 @@ const Home = () => {
           
         <div className='flex gap-5 py-2 px-4'>
             {/* links */}
-            <Link to ="/login" className="hover:underline">Sign In</Link>
-            <div className='border-l border-grey-300'></div>
-            <Link to ="/register" className="hover:underline">Register</Link>
+            {/* condition ? (trueCase) : (falseCase) */}
+
+            {!isLoggedIn ? (
+              <>
+                <Link to ="/login" className="hover:underline">Sign In</Link>
+                <div className='border-l border-grey-300'></div>
+                <Link to ="/register" className="hover:underline">Register</Link>
+              </>
+            ) : (
+                <Link to="/list" className="hover:underline">Dashboard</Link>
+            )}
         </div>
+        
       </header>
 
       <div className= "flex flex-row justify-between items-center p-10 mt-5">
