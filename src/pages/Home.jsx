@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Home = () => {
   return (
-    <div className="p-4">
+    <div className="p-4 w-full h-screen">
       <header className='flex justify-between items-center'>
         <div className="flex justify-between items-center">
           <Link to="/">
@@ -26,8 +26,8 @@ const Home = () => {
             <button className="hover:bg-black hover:text-white mt-10 mb-6 leading-10 border-gray-500 border px-5 rounded-full">Get started</button>
           </a>
         </div>
-        <div>
-          <img className="h-auto max-w-xs ml-10" src="/skincare2.png" alt="image description"></img>
+        <div className="hidden md:flex justify-center mt-5 md:mt-0">
+          <img className="h-auto max-w-xs mx-4 sm:mx-8 md:mx-10" src="/skincare2.png" alt="image description"></img>
         </div>
       </div>
     </div>
