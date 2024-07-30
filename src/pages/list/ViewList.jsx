@@ -24,10 +24,10 @@ const rowColour = (status) => {
 
 export const ViewList = () => {
     const [data, setData] = useState([]);
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     const handleResize = () => {
-        setIsMobile(window.innerWidth <= 600)
+        setIsMobile(window.innerWidth <= 768)
     }
 
     const getList = async () => {
@@ -96,7 +96,30 @@ export const ViewList = () => {
                     </tbody>
                 </table>
     )
-    
+
+    const MobileTable = () => (
+        <div>
+            {data.length === 0 ? (
+                <div className="text-center py-10">Start adding product</div>
+            ) : (
+                data.map((item, index) => (
+                    <div key={index} className={`mobile-row text-center ${rowColour(item.status)} py-2 border-b`}>
+                        <div><strong>No:</strong> {index + 1}</div>
+                        <div><strong>Product:</strong> {item.product_name}</div>
+                        <div><strong>Opened Date:</strong> {formatDate(item.open_date)}</div>
+                        <div><strong>Expiry Date:</strong> {formatDate(item.expiry_date)}</div>
+                        <div><strong>Status:</strong> {item.status}</div>
+                        <button
+                            onClick={() => handleDelete(item.id)}
+                            className="px-2 py-1 text-black bg-red-200 hover:bg-red-400 hover:text-white border-none rounded-full mt-2">
+                            Delete
+                        </button>
+                    </div>
+                ))
+            )}
+        </div>
+    );
+
     return (
         <div className="p-10 h-screen grow items-center justify-around">
             <HeaderLogin/>
