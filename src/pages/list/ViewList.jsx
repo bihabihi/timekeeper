@@ -24,6 +24,11 @@ const rowColour = (status) => {
 
 export const ViewList = () => {
     const [data, setData] = useState([]);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+
+    const handleResize = () => {
+        setIsMobile(window.innerWidth <= 600)
+    }
 
     const getList = async () => {
         const response = await getListApi();
@@ -44,28 +49,16 @@ export const ViewList = () => {
     }
 
     useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize)
+    }, []);
+
+    useEffect(() => {
         getList();
     }, []);
-    
-    return (
-        <div className="p-10 h-screen grow items-center justify-around">
-            <HeaderLogin/>
 
-            <div className="my-10 flex items-center justify-between">
-                <div className="text-2xl">Your Product List</div>
-                <div>
-                    <a 
-                        href="/list/addtolist"
-                        className="px-2 py-1 text-white bg-blue-500 border border-blue-500 rounded-full">
-                        + New Product 
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div className="overflow-x-auto">
-                <table className="min-w-full bg-white border mb-20">
+    const DesktopTable = () => (
+        <table className="min-w-full bg-white border mb-20">
                     <thead className="bg-gray-300">
                         <tr>
                             <th className="py-2 px-4 border-b">No</th>
@@ -102,6 +95,27 @@ export const ViewList = () => {
                         )}
                     </tbody>
                 </table>
+    )
+    
+    return (
+        <div className="p-10 h-screen grow items-center justify-around">
+            <HeaderLogin/>
+
+            <div className="my-10 flex items-center justify-between">
+                <div className="text-2xl">Your Product List</div>
+                <div>
+                    <a 
+                        href="/list/addtolist"
+                        className="px-2 py-1 text-white bg-blue-500 border border-blue-500 rounded-full">
+                        + New Product 
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div className="overflow-x-auto">
+                {isMobile ? <MobileTable/> : <DesktopTable/>}
             </div>
             
             
