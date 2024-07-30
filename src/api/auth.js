@@ -1,10 +1,10 @@
 export const registerUser = async ({ username, email, password}) => {
-    const payload = {
-        username: username,
-        email: email,
-        password: password
-    };
-    console.log("Payload:", payload);
+    // const payload = {
+    //     username: username,
+    //     email: email,
+    //     password: password
+    // };
+    // console.log("Payload:", payload);
     try {
         const response = await fetch (`${import.meta.env.VITE_API_URL}/register`, {
             method:"POST",
